@@ -117,6 +117,17 @@ else:
 			for filename in filenames:
 				filePath = os.path.join(folderName,filename)
 				zf.write(filePath, filePath)
+		zf.write("pack.mcmeta")
+		zf.write("pack.png")
+		if(start_with_hearts!=5 or end_with_hearts!=20):
+			modified='This modified version of '
+		else:
+			modified=''
+		mcmeta_json=json.load(open("pack.mcmeta",'r'))
+		mcmeta_json['pack']['description']=f"{modified}Woflje's Level Up HP datapack makes you start with {start_with_hearts} hearts ({start_with_hearts*2} HP) which you can increase to a max of {end_with_hearts} hearts ({end_with_hearts*2} HP) by killing mobs! The more hearts you have, the more mobs you have to kill for a level up."
+		output_json=open("pack.mcmeta",'w')
+		json.dump(mcmeta_json,output_json)
+		output_json.close()
 	zf.close()
 	print("Finished compiling datapack!")
 if failed:
