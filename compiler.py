@@ -6,7 +6,7 @@ from os.path import basename
 ##     Datapack parameters    ##
 
 start_with_hearts  = 5
-end_with_hearts    = 20
+end_with_hearts    = 100
 
 #array should have (end_with_hearts - start_with_hearts) entries
 hp_xp_per_level=[40,50,60,70,70,70,70,70,100,100,150,150,200,200,200]
